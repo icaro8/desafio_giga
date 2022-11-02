@@ -36,8 +36,4 @@ export class HomePage {
     }
   }
 
-  async func(){
-
-  }
-
 }
