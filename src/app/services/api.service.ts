@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Toast } from "@awesome-cordova-plugins/toast/ngx";
-import { LoadingController, NavController, ToastController } from "@ionic/angular";
+import { LoadingController, NavController } from "@ionic/angular";
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -51,11 +51,14 @@ export class ApiService {
       return Promise.resolve(res);
     } catch (e) {
       console.error(e);
+      if (e.status === 400) return Promise.reject('Página não encontrada');
+      if (e.status === 403) return Promise.reject(this.nav.navigateRoot('login'));
       if (!this.show_errors) return Promise.resolve();
       try {
         e = await e.json();
         console.log(e);
         this.showToast(e.message);
+        // e.message.map((e) => this.showToast(e));
       } catch (z) {
         console.error(z);
         this.showToast('Não foi possivel conectar com servidor, por favor tente novamente mais tarde');

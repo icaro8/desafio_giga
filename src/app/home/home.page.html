@@ -1,20 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Giga
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title>Giga</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-grid>
+        <ion-row *ngFor="let x of form.user; index as i">
+
+            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size="12">
+                <ion-card class="shadow" (click)="showUser(i)">
+                    <div class="image">
+                        <ion-card-header>
+                            <ion-avatar>
+                                <img [src]="x.picture.thumbnail" onerror="this.src='assets/img/post.png'" />
+                            </ion-avatar>
+                            <ion-chip color="secondary">
+                                <ion-label>Nome: {{x.name.first}} {{x.name.last}}</ion-label>
+                            </ion-chip>
+
+                            <ion-chip color="tertiary">
+                                <ion-label>E-mail: {{x.email}}</ion-label>
+                                <ion-label>Gênero: {{x.gender}}</ion-label>
+                            </ion-chip>
+                        </ion-card-header>
+                    </div>
+                </ion-card>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll threshold="100px" [disabled]="!form.loaded" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
 </ion-content>

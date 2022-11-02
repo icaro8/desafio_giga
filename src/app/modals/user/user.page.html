@@ -1,9 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>user</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-button (click)="close()" fill="clear" shape="round" class="back">
+            <span class="material-icons">chevron_left</span>
+        </ion-button>
+
+        <ion-title color="primary">
+            {{detail.name.first}}
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-grid>
+        <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size="12">
+            <ion-card class="shadow">
+                <div class="image">
+                    <ion-card-header>
+                        <ion-avatar>
+                            <img [src]="detail.picture.thumbnail" />
+                        </ion-avatar>
+                        <ion-chip color="secondary">
+                            <ion-label>Usuário: {{detail.login.username}}</ion-label>
+                        </ion-chip>
+                        <ion-chip color="medium">
+                            <ion-label>Nome: {{detail.name.first}} {{detail.name.last}}</ion-label>
+                        </ion-chip>
+                        <ion-chip color="medium">
+                            <ion-label>E-mail: {{detail.email}}</ion-label>
+                        </ion-chip>
+                        <ion-chip color="medium">
+                            <ion-label>Gênero: {{detail.gender}}</ion-label>
+                        </ion-chip>
+                        <ion-chip color="medium">
+                            <ion-label>Celular: {{detail.cell}}</ion-label>
+                        </ion-chip>
+                        <ion-chip color="medium">
+                            <ion-label>Telefone: {{detail.phone}}</ion-label>
+                        </ion-chip>
+                        <ion-chip color="medium">
+                            <ion-label>Logradouro: {{detail.street.name}},{{detail.street.number}} cep:{{detail.street.postcode}}</ion-label>
+                        </ion-chip>
+                    </ion-card-header>
+                </div>
+            </ion-card>
+        </ion-col>
+    </ion-grid>
 </ion-content>
