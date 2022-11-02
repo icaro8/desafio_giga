@@ -3,10 +3,6 @@
         <ion-button (click)="close()" fill="clear" shape="round" class="back">
             <span class="material-icons">chevron_left</span>
         </ion-button>
-
-        <ion-title color="primary">
-            {{detail.name.first}}
-        </ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -21,24 +17,24 @@
                         </ion-avatar>
                         <ion-chip color="secondary">
                             <ion-label>Usuário: {{detail.login.username}}</ion-label>
-                        </ion-chip>
+                        </ion-chip><br>
                         <ion-chip color="medium">
                             <ion-label>Nome: {{detail.name.first}} {{detail.name.last}}</ion-label>
-                        </ion-chip>
+                        </ion-chip><br>
                         <ion-chip color="medium">
                             <ion-label>E-mail: {{detail.email}}</ion-label>
-                        </ion-chip>
+                        </ion-chip><br>
                         <ion-chip color="medium">
                             <ion-label>Gênero: {{detail.gender}}</ion-label>
-                        </ion-chip>
+                        </ion-chip><br>
                         <ion-chip color="medium">
                             <ion-label>Celular: {{detail.cell}}</ion-label>
-                        </ion-chip>
+                        </ion-chip><br>
                         <ion-chip color="medium">
                             <ion-label>Telefone: {{detail.phone}}</ion-label>
-                        </ion-chip>
+                        </ion-chip><br>
                         <ion-chip color="medium">
-                            <ion-label>Logradouro: {{detail.street.name}},{{detail.street.number}} cep:{{detail.street.postcode}}</ion-label>
+                            <ion-label>Logradouro: {{detail.location.street.name}},{{detail.location.street.number}}<br> Cep: {{detail.location.postcode}}</ion-label>
                         </ion-chip>
                     </ion-card-header>
                 </div>

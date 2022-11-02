@@ -4,6 +4,14 @@
             Giga
         </ion-title>
     </ion-toolbar>
+    <ion-item>
+        <ion-label style="font-size: 16px;font-family: 'Poppins', sans-serif; ">Filtrar por sexo</ion-label>
+        <ion-select (ionChange)="filterUser()" [(ngModel)]="filter">
+            <ion-select-option value="Feminino">Feminino</ion-select-option>
+            <ion-select-option value="Masculino">Masculino</ion-select-option>
+            <ion-select-option value="all">Todos</ion-select-option>
+        </ion-select>
+    </ion-item>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,11 +20,10 @@
             <ion-title>Giga</ion-title>
         </ion-toolbar>
     </ion-header>
-
     <ion-grid>
         <ion-row *ngFor="let x of form.user; index as i">
 
-            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size="12">
+            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size="12" [hidden]="filter != 'all' && filter != x.gender">
                 <ion-card class="shadow" (click)="showUser(i)">
                     <div class="image">
                         <ion-card-header>
@@ -24,11 +31,13 @@
                                 <img [src]="x.picture.thumbnail" onerror="this.src='assets/img/post.png'" />
                             </ion-avatar>
                             <ion-chip color="secondary">
-                                <ion-label>Nome: {{x.name.first}} {{x.name.last}}</ion-label>
+                                <ion-label>{{x.name.first}} {{x.name.last}}</ion-label>
                             </ion-chip>
 
-                            <ion-chip color="tertiary">
+                            <ion-chip color="medium">
                                 <ion-label>E-mail: {{x.email}}</ion-label>
+                            </ion-chip>
+                            <ion-chip color="medium">
                                 <ion-label>Gênero: {{x.gender}}</ion-label>
                             </ion-chip>
                         </ion-card-header>
