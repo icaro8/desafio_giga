@@ -62,27 +62,6 @@ export class HomePage {
     }
   }
 
-  async filterUser() {
-    // try {
-    //   var api = new ApiService();
-    //   api.show_toast = false;
-    //   api.url = `api/?format=json&results=20&page=1`;
-    //   this.form.data = this.form.data.concat(await api.request());
-    //   this.form.data.map(e => {
-    //     e.results.map(e => {
-    //       if (e.gender == 'male') e.gender = 'Masculino';
-    //       if (e.gender == 'female') e.gender = 'Feminino';
-    //     });
-    //     this.form.user = this.form.user.concat(e.results);
-    //     console.log(e);
-    //   })
-    //   this.form.loaded = true;
-    //   console.log(this.form);
-    // } catch (e) {
-
-    // }
-  }
-
   async loadData(event) {
     console.log(event);
     this.page++;

@@ -6,7 +6,7 @@
     </ion-toolbar>
     <ion-item>
         <ion-label style="font-size: 16px;font-family: 'Poppins', sans-serif; ">Filtrar por sexo</ion-label>
-        <ion-select (ionChange)="filterUser()" [(ngModel)]="filter">
+        <ion-select [(ngModel)]="filter">
             <ion-select-option value="Feminino">Feminino</ion-select-option>
             <ion-select-option value="Masculino">Masculino</ion-select-option>
             <ion-select-option value="all">Todos</ion-select-option>
